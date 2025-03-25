@@ -1,7 +1,7 @@
 "use client";
 
-import { registerSchema } from "@/lib/allSchemas";
-import { RegisterType } from "@/lib/allTypes";
+import { loginSchema } from "@/lib/allSchemas";
+import { LoginType } from "@/lib/allTypes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
@@ -26,57 +26,39 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const [view, setView] = useState(false);
 
-  const rhForm = useForm<RegisterType>({
+  const rhForm = useForm<LoginType>({
+    resolver: zodResolver(loginSchema),
+
+    mode: "all",
+
     defaultValues: {
-      firstName: "",
       email: "",
       password: "",
     },
-    resolver: zodResolver(registerSchema),
-    mode: "all",
   });
 
-  const registerFormSubmit = async (rfData: RegisterType) => {
-    console.log(rfData);
+  const loginFormSubmit = async (lfData: LoginType) => {
+    console.log(lfData);
   };
 
   return (
     <>
       <Card className="w-full sm:w-[350px]">
         <CardHeader className="grid place-items-center text-center">
-          <CardTitle>Register</CardTitle>
+          <CardTitle>Login</CardTitle>
 
-          <CardDescription>Create a new account</CardDescription>
+          <CardDescription>Log into your account</CardDescription>
         </CardHeader>
 
         <CardContent>
           <Form {...rhForm}>
             <form
-              onSubmit={rhForm.handleSubmit(registerFormSubmit)}
+              onSubmit={rhForm.handleSubmit(loginFormSubmit)}
               className="space-y-8"
             >
-              <FormField
-                control={rhForm.control}
-                name={"firstName"}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-
-                    <FormControl>
-                      <Input
-                        placeholder="John Doe"
-                        {...field}
-                      />
-                    </FormControl>
-
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
               <FormField
                 control={rhForm.control}
                 name={"email"}
@@ -139,19 +121,19 @@ const RegisterForm = () => {
                     : true
                 }
               >
-                Register
+                Login
               </Button>
             </form>
           </Form>
         </CardContent>
 
         <CardFooter className="flex justify-center text-center">
-          <span>Already have an account?&nbsp;</span>
+          <span>Don&apos;t have an account?&nbsp;</span>
           <Link
-            href={"/auth/login"}
+            href={"/auth/register"}
             className="font-bold underline"
           >
-            Login
+            Register
           </Link>
         </CardFooter>
       </Card>
@@ -159,4 +141,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;
