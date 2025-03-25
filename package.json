@@ -1,6 +1,6 @@
 {
-  "name": "nextjs-starter-template",
-  "version": "1.0.0",
+  "name": "fastify-auth-ui-v1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -34,6 +34,5 @@
     "typescript": "5"
   },
   "author": "Saikat Sardar",
-  "license": "MIT",
-  "homepage": "https://github.com/MrSaikatS/nextjs-starter-template#readme"
+  "license": "MIT"
 }
