@@ -20,7 +20,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         >
           <Header appName="NST App" />
 
-          <main className="container mx-auto px-6 py-3">{children}</main>
+          <main className="container mx-auto px-6">{children}</main>
         </ThemeProvider>
       </body>
     </html>

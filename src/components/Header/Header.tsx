@@ -4,7 +4,7 @@ import ThemeToggleButton from "../ui/ThemeToggleButton";
 const Header = ({ appName }: { appName: string }) => {
   return (
     <header
-      className="border-b shadow"
+      className="fixed w-full border-b shadow"
       aria-label="app-header"
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-3">
@@ -17,6 +17,10 @@ const Header = ({ appName }: { appName: string }) => {
 
         <nav className="flex items-center gap-4">
           <Link href={"/"}>Home</Link>
+
+          <Link href={"/auth/login"}>Login</Link>
+
+          <Link href={"/auth/register"}>Register</Link>
 
           <ThemeToggleButton />
         </nav>
