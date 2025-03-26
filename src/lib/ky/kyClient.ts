@@ -1,7 +1,7 @@
 import ky from "ky";
 
 const kyClient = ky.create({
-  prefixUrl: "http://localhost:3000",
+  prefixUrl: "http://localhost:9055",
   credentials: "include",
   mode: "cors",
   cache: "no-store",
