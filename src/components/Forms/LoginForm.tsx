@@ -41,7 +41,13 @@ const LoginForm = () => {
   });
 
   const loginFormSubmit = async (lfData: LoginType) => {
-    console.log(lfData);
+    // console.log(lfData);
+
+    try {
+      //
+    } catch (error) {
+      //
+    }
   };
 
   return (
