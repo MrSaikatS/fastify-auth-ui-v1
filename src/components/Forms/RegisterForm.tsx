@@ -2,6 +2,7 @@
 
 import { registerSchema } from "@/lib/allSchemas";
 import { RegisterType } from "@/lib/allTypes";
+import registerHook from "@/lib/hooks/registerHook";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
@@ -40,7 +41,17 @@ const RegisterForm = () => {
   });
 
   const registerFormSubmit = async (rfData: RegisterType) => {
-    console.log(rfData);
+    const { message, success } = await registerHook(rfData);
+
+    if (!success) {
+      console.log(message);
+    }
+
+    if (success) {
+      console.log(message);
+
+      // await registerAction();
+    }
   };
 
   return (
