@@ -1,17 +1,16 @@
 import { HTTPError } from "ky";
-import { DefaultRequestType, RegisterType } from "../allTypes";
+import { DefaultRequestType, LoginType } from "../allTypes";
 import kyClient from "../ky/kyClient";
 
-const registerHook = async (rfData: RegisterType) => {
+const loginHook = async (lfData: LoginType) => {
   try {
     const req: DefaultRequestType = await kyClient
-      .post("auth/register", {
-        next: { tags: ["authRegister"] },
+      .post("auth/login", {
+        next: { tags: ["authLogin"] },
 
         json: {
-          firstName: rfData.firstName,
-          email: rfData.email,
-          password: rfData.password,
+          email: lfData.email,
+          password: lfData.password,
         },
       })
       .json();
@@ -39,4 +38,4 @@ const registerHook = async (rfData: RegisterType) => {
   }
 };
 
-export default registerHook;
+export default loginHook;

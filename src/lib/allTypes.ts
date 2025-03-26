@@ -5,4 +5,4 @@ export type RegisterType = z.infer<typeof registerSchema>;
 
 export type LoginType = z.infer<typeof loginSchema>;
 
-export type RegisterRequestType = { message: string };
+export type DefaultRequestType = { message: string };

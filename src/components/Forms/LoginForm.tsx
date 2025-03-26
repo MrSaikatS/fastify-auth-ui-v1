@@ -25,6 +25,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
+import loginHook from "@/lib/hooks/loginHook";
 
 const LoginForm = () => {
   const [view, setView] = useState(false);
@@ -43,10 +44,14 @@ const LoginForm = () => {
   const loginFormSubmit = async (lfData: LoginType) => {
     // console.log(lfData);
 
-    try {
-      //
-    } catch (error) {
-      //
+    const { success, message } = await loginHook(lfData);
+
+    if (!success) {
+      console.log(message);
+    }
+
+    if (success) {
+      console.log(message);
     }
   };
 

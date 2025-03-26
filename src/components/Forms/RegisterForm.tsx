@@ -49,6 +49,8 @@ const RegisterForm = () => {
 
     if (success) {
       console.log(message);
+
+      // await registerAction();
     }
   };
 
