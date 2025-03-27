@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeToggleButton from "../ui/ThemeToggleButton";
+import LogoutBtn from "./LogoutBtn";
 
 const Header = ({ appName }: { appName: string }) => {
   return (
@@ -18,9 +19,7 @@ const Header = ({ appName }: { appName: string }) => {
         <nav className="flex items-center gap-4">
           <Link href={"/"}>Home</Link>
 
-          <Link href={"/auth/login"}>Login</Link>
-
-          <Link href={"/auth/register"}>Register</Link>
+          <LogoutBtn />
 
           <ThemeToggleButton />
         </nav>
