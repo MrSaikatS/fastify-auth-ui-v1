@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Home page of Nextjs Starter Template",
 };
 
-const page = () => {
+const page = async () => {
   return (
     <>
       <section className="grid h-[90dvh] place-items-center">

@@ -3,6 +3,7 @@
 import { LogOut } from "lucide-react";
 import { Button } from "../ui/button";
 import logoutHook from "@/lib/hooks/logoutHook";
+import { logoutAction } from "@/lib/actions";
 
 const LogoutBtn = () => {
   const logoutFn = async () => {
@@ -14,6 +15,8 @@ const LogoutBtn = () => {
 
     if (success) {
       console.log(message);
+
+      await logoutAction();
     }
   };
 

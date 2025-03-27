@@ -26,6 +26,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
+import { registerAction } from "@/lib/actions";
 
 const RegisterForm = () => {
   const [view, setView] = useState(false);
@@ -50,7 +51,7 @@ const RegisterForm = () => {
     if (success) {
       console.log(message);
 
-      // await registerAction();
+      await registerAction();
     }
   };
 

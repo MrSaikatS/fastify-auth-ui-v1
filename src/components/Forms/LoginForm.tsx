@@ -26,6 +26,7 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import loginHook from "@/lib/hooks/loginHook";
+import { loginAction } from "@/lib/actions";
 
 const LoginForm = () => {
   const [view, setView] = useState(false);
@@ -52,6 +53,8 @@ const LoginForm = () => {
 
     if (success) {
       console.log(message);
+
+      await loginAction();
     }
   };
 

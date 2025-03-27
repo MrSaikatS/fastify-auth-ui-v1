@@ -1,8 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import ThemeToggleButton from "../ui/ThemeToggleButton";
 import LogoutBtn from "./LogoutBtn";
+import { usePathname } from "next/navigation";
 
 const Header = ({ appName }: { appName: string }) => {
+  const pathName = usePathname();
+
+  if (pathName === "/auth/login" || pathName === "/auth/register") {
+    return <></>;
+  }
+
   return (
     <header
       className="fixed w-full border-b shadow"
