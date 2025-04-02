@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useFilePicker } from "use-file-picker";
-import { Card, CardContent } from "../ui/card";
 import { Button } from "../ui/button";
+import { Card, CardContent } from "../ui/card";
 
 const FileUpload = () => {
   // for storing file state manually
@@ -31,7 +31,7 @@ const FileUpload = () => {
     // const formData = new FormData();
     // formData.append("file", plainFiles[0]);
 
-    console.log(filesContent);
+    console.log(plainFiles[0]);
 
     clear();
   };
