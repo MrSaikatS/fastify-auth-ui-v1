@@ -1,7 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import ThemeToggleButton from "../ui/ThemeToggleButton";
+import LogoutBtn from "./LogoutBtn";
+import { usePathname } from "next/navigation";
 
 const Header = ({ appName }: { appName: string }) => {
+  const pathName = usePathname();
+
+  if (pathName === "/auth/login" || pathName === "/auth/register") {
+    return <></>;
+  }
+
   return (
     <header
       className="fixed w-full border-b shadow"
@@ -18,9 +28,7 @@ const Header = ({ appName }: { appName: string }) => {
         <nav className="flex items-center gap-4">
           <Link href={"/"}>Home</Link>
 
-          <Link href={"/auth/login"}>Login</Link>
-
-          <Link href={"/auth/register"}>Register</Link>
+          <LogoutBtn />
 
           <ThemeToggleButton />
         </nav>

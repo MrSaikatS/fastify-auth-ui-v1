@@ -1,3 +1,4 @@
+import FileUpload from "@/components/UploadFile/FileUpload";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,15 +6,11 @@ export const metadata: Metadata = {
   description: "Home page of Nextjs Starter Template",
 };
 
-const page = () => {
+const page = async () => {
   return (
     <>
       <section className="grid h-[90dvh] place-items-center">
-        <div className="bg-gradient-to-tr from-rose-600 to-violet-600 bg-clip-text p-2">
-          <span className="text-5xl font-bold text-transparent">
-            Nextjs Starter Template
-          </span>
-        </div>
+        <FileUpload />
       </section>
     </>
   );
