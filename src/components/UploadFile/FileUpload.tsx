@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useFilePicker } from "use-file-picker";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
+import kyClient from "@/lib/ky/kyClient";
 
 const FileUpload = () => {
   // for storing file state manually
@@ -28,10 +29,17 @@ const FileUpload = () => {
   };
 
   const fileUploadFn = async () => {
-    // const formData = new FormData();
-    // formData.append("file", plainFiles[0]);
+    const formData = new FormData();
 
-    console.log(plainFiles[0]);
+    formData.append("testFile", plainFiles[0]);
+
+    const req = await kyClient
+      .post("files/upload", {
+        body: formData,
+      })
+      .json();
+
+    console.log(req);
 
     clear();
   };
